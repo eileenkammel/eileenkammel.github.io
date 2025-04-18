@@ -27,8 +27,8 @@ LINKS = (
 
 # Social widget
 SOCIAL = (
-    ("You can add links in your config file", "#"),
-    ("Another social link", "#"),
+    ("linkedin", "https://www.linkedin.com/in/eileen-kammel/"),
+    ("github", "https://github.com/eileenkammel/"),
 )
 
 DEFAULT_PAGINATION = 5
