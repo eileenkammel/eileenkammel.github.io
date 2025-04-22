@@ -1,4 +1,8 @@
-AUTHOR = 'Eileen Kammel'
+from __future__ import unicode_literals
+
+# Basic information
+AUTHOR = u'Eileen Kammel'
+AUTHOREMAIL = 'eileen@kammel.dev'
 SITENAME = 'Large Language Musings'
 SITEURL = ""
 
@@ -19,10 +23,7 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (
-    ("Pelican", "https://getpelican.com/"),
-    ("Python.org", "https://www.python.org/"),
-    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-    ("You can modify those links in your config file", "#"),
+    ("Best Playlist", "https://open.spotify.com/playlist/6hx11ZpXIunQDCxq6OrHs7?si=bcec27f22e084d15"),
 )
 
 # Social widget
@@ -32,6 +33,12 @@ SOCIAL = (
 )
 
 DEFAULT_PAGINATION = 5
+
+DISPLAY_PAGES_ON_MENU = True
+
+MENUITEMS = (
+    ("Home", "/"),
+)
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
