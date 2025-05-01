@@ -16,16 +16,22 @@
 <h2>
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title }}">{{ article.title }}</a>
 </h2>
-
+{% if article.subtitle %}
+<h3>
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.subtitle }}">{{ article.subtitle }}</a>
+</h3>
+{% endif %}
 <div>
-    <b>By: </b><a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a><b>    On: </b>{{ article.locale_date }}<br />
-    <b>In: </b><a href="{{ SITEURL }}/{{ article.category.url }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">{{ article.category }}</a><br />
-    <em><b>Tags: </b>
+    <span>
+        <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a> |
+        {{ article.locale_date }} |
+        <a href="{{ SITEURL }}/{{ article.category.url }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">{{ article.category }}</a> |
         {% if article.tags %}
             {% for tag in article.tags %}
                 <span><a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }} </a></span>
             {% endfor %}
         {% endif %}
+    </span>
     </em>
     <hr>
 </div>

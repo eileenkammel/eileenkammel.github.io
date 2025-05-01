@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Can LLMs Describe What They See?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Eileen Kammel">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="Large Language Musings">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/can-llms-describe-what-they-see.html">
+<meta name="twitter:title" content="Large Language Musings ~ Can LLMs Describe What They See?">
+<meta name="twitter:description" content="How well do AI language models describe what they see? This study evaluates their ability to generate and understand referring expressions using a visual reference game.">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="Large Language Musings ~ Can LLMs Describe What They See?" />
+<meta property="og:description" content="How well do AI language models describe what they see? This study evaluates their ability to generate and understand referring expressions using a visual reference game." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>Large Language Musings</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/pages/about-me.html">About Me</a></li>
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/llm.html">LLM</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>Links</h2>
+            <ul>
+                    <li><a href="https://open.spotify.com/playlist/6hx11ZpXIunQDCxq6OrHs7?si=bcec27f22e084d15">Best Playlist</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="https://www.linkedin.com/in/eileen-kammel/" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/linkedin.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="https://github.com/eileenkammel/" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/can-llms-describe-what-they-see.html" rel="bookmark" title="Permalink to Can LLMs Describe What They See?">Can LLMs Describe What They See?</a>
+</h2>
+<h3>
+    <a href="/can-llms-describe-what-they-see.html" rel="bookmark" title="Permalink to Evaluating Multimodal LLMs through a Picture-Guessing Game">Evaluating Multimodal LLMs through a Picture-Guessing Game</a>
+</h3>
+<div>
+    <span>
+        <a href="/author/eileen-kammel.html">Eileen Kammel</a> |
+        Tue 29 April 2025 |
+        <a href="/category/llm.html" rel="bookmark" title="Permalink to LLM">LLM</a> |
+                <span><a href="/tag/llm.html">#llm </a></span>
+                <span><a href="/tag/linguistics.html">#linguistics </a></span>
+                <span><a href="/tag/evaluation.html">#evaluation </a></span>
+    </span>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>As language models get better at understanding both text and images, I found myself wondering: <strong>Can they actually refer to something the way we do?</strong> Not just describe an image, but <em>point something out</em> within a controlled context clearly —like saying <em>“the red chair”</em> when there are four different chairs.</p>
+<p>That’s what my thesis is all about. I set up a reference game, kind of like a digital version of "guess which picture I mean" and tested how well multi-modal LLMs could play it. The idea was to see whether they could understand and generate short, clear descriptions that help identify specific images while excluding the others. Here's what I found.</p>
+<hr>
+<h4>The Setup: A Two-Player Game</h4>
+<p>The core of the experiment was a simple two-player game:</p>
+<ul>
+<li>The <strong>Explainer</strong> describes a target image.</li>
+<li>The <strong>Guesser</strong> picks the right one from a set of four.</li>
+</ul>
+<p>We ran this in two modes:</p>
+<ul>
+<li><strong>Production mode</strong>: The model has to describe the image itself.</li>
+<li><strong>Comprehension mode</strong>: The model is given a human-made description and has to guess the correct image.</li>
+</ul>
+<h5>The Datasets</h5>
+<p>To make things interesting, I used two types of images, one simple, one complex:</p>
+<p><strong>TUNA Corpus</strong><br>
+This one shows everyday furniture like chairs and desks. The objects are simple and familiar.</p>
+<p><em>Example:</em><br>
+<img alt="TUNA Example" src="images/tuna_ex.png"><br>
+The first image is described by the attribute matrix: <code>&lt;desk, red, large, front&gt;</code></p>
+<p><strong>3D Shapes Dataset</strong><br>
+This dataset is trickier. It has three-dimensional shapes in rooms, with more features like separate colors for the shape, floor and wall, and rotation of the room.</p>
+<p><em>Example:</em><br>
+<img alt="3D Shapes Example" src="images/3ds_ex.png"><br>
+The first image is described by the attribute matrix: <code>&lt;ball, small, blue, red wall, orange floor, front&gt;</code></p>
+<hr>
+<h4>What I Learned</h4>
+<h5>Models Are Better at Understanding Than Describing</h5>
+<p>Most models did a pretty good job when they were just reading a human-written description and picking an image. But when they had to <strong>generate</strong> that description themselves, things got messier. The descriptions were often too long or didn’t include the right details, so another LLM was not able to pick the right image based on such a description.</p>
+<h5>Harder Images Made Things Worse</h5>
+<p>Not surprisingly, the more complex 3D shapes caused more trouble. There were more things to describe—and more ways to get it wrong.</p>
+<h5>Commercial Models Had the Upper Hand</h5>
+<p>Commercial models like GPT-4o and Claude 3.5 outperformed open models like InternVL2 or Idefics, especially when it came to generating clearer, more focused descriptions.</p>
+<hr>
+<h4>Performance Overview</h4>
+<p>Here’s an overview of how models performed in different modes on both datasets:</p>
+<p><em>Selection of correct image with LLM -ade expressions:</em><br>
+<img alt="Production Mode" src="images/completion_correct_ratio_all.png"></p>
+<p><em>Selection of correct image with human-made expressions:</em><br>
+<img alt="Comprehension Mode" src="images/completion_correct_ratio_all_programmatic.png"></p>
+<p>In general, <strong>comprehension mode</strong> (expressions made by humans) led to much higher accuracy than production mode. When given a good description, models were usually able to find the right image.</p>
+<hr>
+<h4>A Closer Look at the Language</h4>
+<h5>Too Much Info</h5>
+<p>One common issue was that models added too much information. Instead of just saying <em>"the ball"</em>, what would be sufficient within the given context, they’d say something like <em>"a small red rubber ball with a smooth surface placed in the middle of the orange-floored room with red walls."</em> That might sound nice, but it’s not always helpful.</p>
+<p><em>Surplus info comparison:</em><br>
+<img alt="Surplus Information" src="images/surplus_info_commercial.png"></p>
+<p>Human descriptions were much more efficient—short and to the point.</p>
+<h5>Visual Context <em>Does</em> Indeed Influence Language</h5>
+<p>All models have additionally been prompted to give a <strong>ground truth</strong> image description without the context of other images. Those descriptions exceed the picture guessing descriptions by far:</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; text-align: left; width: 100%;">
+  <thead>
+    <tr>
+      <th style="width: 25%;">Model</th>
+      <th colspan="2" style="text-align: center;">Mean Diff (TUNA)</th>
+      <th colspan="2" style="text-align: center;">Mean Diff (3DS)</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th style="text-align: center;">Info</th>
+      <th style="text-align: center;">Length</th>
+      <th style="text-align: center;">Info</th>
+      <th style="text-align: center;">Length</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://arxiv.org/abs/2410.21276" target="_blank">GPT-4o</a></td>
+      <td><strong>14.17</strong></td>
+      <td>34.81</td>
+      <td><strong>18.2</strong></td>
+      <td>40.8</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.anthropic.com/news/claude-3-5-sonnet" target="_blank">Claude-3.5</a></td>
+      <td><strong>31.66</strong></td>
+      <td>74.03</td>
+      <td><strong>30.55</strong></td>
+      <td>73.25</td>
+    </tr>
+    <tr>
+      <td><a href="https://ai.google.dev/gemini-api/docs/models/experimental-models" target="_blank">Gemini-2.0</a></td>
+      <td><strong>29.99</strong></td>
+      <td>58.31</td>
+      <td><strong>36.17</strong></td>
+      <td>66.63</td>
+    </tr>
+    <tr>
+      <td><a href="https://arxiv.org/abs/2306.16527" target="_blank">Idefics</a></td>
+      <td><strong>18.07</strong></td>
+      <td>49.3</td>
+      <td><strong>18.23</strong></td>
+      <td>45.17</td>
+    </tr>
+    <tr>
+      <td><a href="https://arxiv.org/abs/2412.05271" target="_blank">InternVL2-Llama3-76B</a></td>
+      <td><strong>30.22</strong></td>
+      <td>67.89</td>
+      <td><strong>26.45</strong></td>
+      <td>61.96</td>
+    </tr>
+    <tr>
+      <td><a href="https://arxiv.org/abs/2412.05271" target="_blank">InternVL2-40B</a></td>
+      <td><strong>29.52</strong></td>
+      <td>72.7</td>
+      <td><strong>30.57</strong></td>
+      <td>70.33</td>
+    </tr>
+    <tr>
+      <td><a href="https://arxiv.org/abs/2412.05271" target="_blank">InternVL2-8B</a></td>
+      <td><strong>26.33</strong></td>
+      <td>60.26</td>
+      <td><strong>24.29</strong></td>
+      <td>58.54</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="margin-top: 8px; text-align: left; max-width: 800px;">
+  <strong>Comparison of Mean Information Difference and Mean Length Difference in Ground Truth vs. Referring Expressions.</strong><br>
+  (Information: Sum of included adjectives and nouns, Length: Word count) Positive values indicate more Information / word count in Ground Truth.
+</p>
+<p style="margin-top: 8px; text-align: left; max-width: 800px;">
+  <strong>Comparison of Mean Information Difference and Mean Length Difference in Ground Truth vs. Referring Expressions.</strong><br>
+  (Information: Sum of included adjectives and nouns, Length: Word count) Positive values indicate more Information / word count in Ground Truth.
+</p>
+<hr>
+<h4>So, Can They Actually Do It?</h4>
+<h5>The Good News</h5>
+<p>Yes — <strong>LLMs can understand</strong> referring expressions when they’re well written. Most models picked the right image when given a clear human-made description.</p>
+<h5>The Not-So-Good News</h5>
+<p>They’re still <strong>not great at writing those descriptions themselves</strong>, especially in complex scenes. The descriptions often lacked the crucial bits, or included too much unrelated info. A lot of them ended up sounding more like image captions than like purposeful, contrastive expressions.</p>
+<hr>
+<h4>Why This Matters</h4>
+<p>Being able to refer to things clearly is a big deal in real-world AI applications:</p>
+<ul>
+<li>Helping robots understand and follow instructions</li>
+<li>Making assistive tools (like screen readers) smarter</li>
+<li>Improving collaboration between people and machines</li>
+</ul>
+<p>If a model says <em>“the chair in the back corner”</em> but there are three of them—it’s a problem. That’s why it’s important we keep testing and improving this kind of ability.</p>
+<hr>
+<h4>What Could Be Better?</h4>
+<p>Some ideas for future work:</p>
+<ul>
+<li>Try more human-like evaluation methods (not just minimal expressions)</li>
+<li>Test how models behave in <strong>multi-turn</strong> conversations</li>
+<li>See if models can be prompted or trained to use visual context more effectively</li>
+<li>Fix inconsistent outputs — models often gave different answers for the same input</li>
+</ul>
+<hr>
+<h4>Final Thoughts</h4>
+<p>Language models are clearly getting better at handling vision and language together. But this kind of <strong>reference-focused task</strong> is still tricky. Most models do fine reading descriptions, but struggle to produce their own that are short, clear, and helpful.</p>
+<p>Still, the gap is closing—and this kind of research helps us understand where the real challenges are.</p>
+<p>Want to dig deeper?<br>
+<strong><a href="insert-link-to-thesis.pdf">Read the full thesis (PDF)</a></strong></p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/can-llms-describe-what-they-see.html&text=Can LLMs Describe What They See?&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/can-llms-describe-what-they-see.html&t=Can LLMs Describe What They See?"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/can-llms-describe-what-they-see.html&title=Can LLMs Describe What They See?" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> eileen@kammel.dev </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

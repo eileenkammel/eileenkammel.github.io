@@ -22,12 +22,18 @@
     {% for article in (articles_page.object_list if articles_page else articles) %}
         <hr>
         <li>
-            <h5><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h5>
+            <h5 style="margin-bottom: 0em;"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h5>
+            {% if article.subtitle %}
+                <h6 style="margin-top: 0.2em;"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.subtitle|striptags }}">{{ article.subtitle }}</a></h6>
+            {% endif %}
             {% if DISPLAY_SUMMARY and article.summary|length > 0 %}
                 <i>{{ article.summary }}</i>
             {% endif %}
-            By:<a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a><br />On:{{ article.locale_date }}<br />In:<a href="{{ SITEURL }}/{{ article.category.url }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">{{ article.category }}</a>
-        </li>
+            <span>
+                <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a> |
+                {{ article.locale_date }} |
+                <a href="{{ SITEURL }}/{{ article.category.url }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">{{ article.category }}</a>
+            </span>
     {% endfor %}
     </ol>
 {% endif %}

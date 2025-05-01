@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <!-- Site Meta Data -->
-  <title>Hello World</title>
+  <title>Can LLMs Describe What They See?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="Eileen Kammel">
@@ -27,13 +27,13 @@
   <meta name="twitter:image" content="">
 
 <meta name="twitter:creator" content="">
-<meta name="twitter:url" content="/hello-world.html">
-<meta name="twitter:title" content="Large Language Musings ~ Hello World">
-<meta name="twitter:description" content="This post gives in overview of the research I conducted for my Bachelor&#39;s thesis. I explore whether LLMs can generate and understand referring expressions — phrases that help identify specific objects in visual scenes. Using a custom-built picture-guessing game, I found that LLMs are better at understanding human-made descriptions than producing clear and contrastive ones themselves. Commercial models outperformed open-weight models, but all struggled more with complex images. Overall, while LLMs grasp visual content, their ability to refer to specific elements in a human-like, efficient way remains limited.">
+<meta name="twitter:url" content="/drafts/can-llms-describe-what-they-see.html">
+<meta name="twitter:title" content="Large Language Musings ~ Can LLMs Describe What They See?">
+<meta name="twitter:description" content="How well do AI language models describe what they see? This study evaluates their ability to generate and understand referring expressions using a visual reference game.">
 
 <!-- Facebook Meta Data -->
-<meta property="og:title" content="Large Language Musings ~ Hello World" />
-<meta property="og:description" content="This post gives in overview of the research I conducted for my Bachelor&#39;s thesis. I explore whether LLMs can generate and understand referring expressions — phrases that help identify specific objects in visual scenes. Using a custom-built picture-guessing game, I found that LLMs are better at understanding human-made descriptions than producing clear and contrastive ones themselves. Commercial models outperformed open-weight models, but all struggled more with complex images. Overall, while LLMs grasp visual content, their ability to refer to specific elements in a human-like, efficient way remains limited." />
+<meta property="og:title" content="Large Language Musings ~ Can LLMs Describe What They See?" />
+<meta property="og:description" content="How well do AI language models describe what they see? This study evaluates their ability to generate and understand referring expressions using a visual reference game." />
 <meta property="og:image" content="" />
 </head>
 
@@ -62,10 +62,6 @@
         </ul>        
 
         <ul>
-                <div class="cat-border">
-                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
-                    <li><a href="/category/tech.html">Tech</a></li>
-                </div>
         </ul>
 
             <h2><br/>Links</h2>
@@ -93,29 +89,30 @@
     
     <maincontent>
 <h2>
-    <a href="/hello-world.html" rel="bookmark" title="Permalink to Hello World">Hello World</a>
+    <a href="/drafts/can-llms-describe-what-they-see.html" rel="bookmark" title="Permalink to Can LLMs Describe What They See?">Can LLMs Describe What They See?</a>
 </h2>
-
+<h3>
+    <a href="/drafts/can-llms-describe-what-they-see.html" rel="bookmark" title="Permalink to Evaluating Multimodal LLMs through a Picture-Guessing Game">Evaluating Multimodal LLMs through a Picture-Guessing Game</a>
+</h3>
 <div>
-    <b>By: </b><a href="/author/eileen-kammel.html">Eileen Kammel</a><b>    On: </b>Tue 29 April 2025<br />
-    <b>In: </b><a href="/category/tech.html" rel="bookmark" title="Permalink to Tech">Tech</a><br />
-    <em><b>Tags: </b>
+    <span>
+        <a href="/author/eileen-kammel.html">Eileen Kammel</a> |
+        Tue 29 April 2025 |
+        <a href="/category/llm.html" rel="bookmark" title="Permalink to LLM">LLM</a> |
                 <span><a href="/tag/llm.html">#llm </a></span>
                 <span><a href="/tag/linguistics.html">#linguistics </a></span>
-                <span><a href="/tag/clembench.html">#clembench </a></span>
+                <span><a href="/tag/evaluation.html">#evaluation </a></span>
+    </span>
     </em>
     <hr>
 </div>
 
 <div>
     <mainarticle>
-    <h1>Can Language Models Describe What They See?</h1>
-<h2>Evaluating Multimodal LLMs through a Picture-Guessing Game</h2>
-<p><em>By Eileen Kammel | April 2025</em></p>
-<p>As large language models (LLMs) become increasingly capable of handling both language and visual inputs, a critical question emerges: <strong>Can they use language in a grounded, functional way to refer to things in their visual environment?</strong> This study addresses that question by testing LLMs’ ability to both understand and generate <strong>referring expressions</strong>—descriptions like <em>“the red chair”</em> or <em>“the ball on the left”</em> that identify specific objects among several alternatives.</p>
+    <p>As large language models (LLMs) become increasingly capable of handling both language and visual inputs, a critical question emerges: <strong>Can they use language in a grounded, functional way to refer to things in their visual environment?</strong> This study addresses that question by testing LLMs’ ability to both understand and generate <strong>referring expressions</strong>—descriptions like <em>“the red chair”</em> or <em>“the ball on the left”</em> that identify specific objects among several alternatives.</p>
 <p>Using a picture-guessing reference game, I evaluated various multimodal LLMs in both comprehension and production roles to better understand their strengths and limitations in this important linguistic task.</p>
 <hr>
-<h2>Experimental Design</h2>
+<h4>Experimental Design</h4>
 <p>The evaluation was structured as a two-player reference game:</p>
 <ul>
 <li>The <strong>Explainer</strong> describes a target image.</li>
@@ -126,29 +123,29 @@
 <li><strong>Production mode</strong>: The model generates a referring expression for an image.</li>
 <li><strong>Comprehension mode</strong>: The model is given a human-made expression and must select the correct image.</li>
 </ul>
-<h3>Image Datasets</h3>
+<h4>Image Datasets</h4>
 <p>Two datasets of differing visual complexity were used:</p>
 <p><strong>TUNA Corpus</strong><br>
 Depicts familiar furniture items such as desks and chairs with attributes like type, color, and orientation.</p>
 <p><em>Example:</em><br>
-<img alt="TUNA Example" src="insert-path/tuna-example.png"><br>
-Described as: <code>&lt;desk, red, large, front&gt;</code></p>
+<img alt="TUNA Example" src="images/tuna_ex.png"><br>
+First image described by attribute matrix: <code>&lt;desk, red, large, front&gt;</code></p>
 <p><strong>3D Shapes Dataset</strong><br>
 Consists of synthetic scenes with abstract shapes described by more attributes, including shape, color, floor color, and rotation.</p>
 <p><em>Example:</em><br>
-<img alt="3D Shapes Example" src="insert-path/3dshapes-example.png"><br>
-Described as: <code>&lt;ball, small, blue, red wall, orange floor, front&gt;</code></p>
+<img alt="3D Shapes Example" src="images/3ds_ex.png"><br>
+First image described by attribute matrix: <code>&lt;ball, small, blue, red, orange, front&gt;</code></p>
 <hr>
-<h2>Key Findings</h2>
-<h3>Comprehension is Stronger than Production</h3>
+<h4>Key Findings</h4>
+<h5>Comprehension is Stronger than Production</h5>
 <p>LLMs generally performed better when interpreting human-generated descriptions than when asked to produce their own. Most models could successfully choose the correct image when provided with a well-formed referring expression. However, their ability to generate such expressions was limited, often resulting in verbose or ambiguous outputs.</p>
-<h3>Visual Complexity Reduces Accuracy</h3>
+<h5>Visual Complexity Reduces Accuracy</h5>
 <p>Models showed significantly lower performance on the 3D Shapes dataset compared to the simpler TUNA corpus. As visual scenes became more abstract or attribute-rich, LLMs were more likely to omit essential identifying details or include irrelevant ones.</p>
-<h3>Commercial Models Outperform Open-Weight Models</h3>
+<h5>Commercial Models Outperform Open-Weight Models</h5>
 <p>Commercial models such as GPT-4o, Claude 3.5, and Gemini demonstrated better overall accuracy and efficiency in both modes. Open-weight models (e.g., InternVL2, Idefics) often produced overly detailed or inconsistent outputs and struggled especially with more complex images.</p>
 <hr>
-<h2>Performance Metrics</h2>
-<h3>Accuracy of Target Identification</h3>
+<h4>Performance Metrics</h4>
+<h5>Accuracy of Target Identification</h5>
 <table>
 <thead>
 <tr>
@@ -181,12 +178,12 @@ Described as: <code>&lt;ball, small, blue, red wall, orange floor, front&gt;</co
 </tbody>
 </table>
 <p>Models identified targets more accurately in comprehension mode, confirming that <strong>generation</strong> remains the more difficult task.</p>
-<h3>Surplus Information in Generated Descriptions</h3>
+<h5>Surplus Information in Generated Descriptions</h5>
 <p>Models often included extraneous details not required to uniquely identify the target. While humans averaged fewer than two surplus words, open-weight models added three to ten extra descriptive terms on average.</p>
 <p><em>Example comparison:</em><br>
 <img alt="Surplus Information" src="insert-path/surplus-info.png"></p>
 <hr>
-<h2>Interpretation and Implications</h2>
+<h4>Interpretation and Implications</h4>
 <p>Although multimodal LLMs can recognize visual content, their ability to refer to specific elements in a concise, contrastive manner remains limited. Generated descriptions frequently resemble <strong>image captions</strong> rather than true referring expressions, often including unnecessary information while omitting critical identifying features.</p>
 <p>This limitation has implications for tasks involving grounded language use, such as:</p>
 <ul>
@@ -196,7 +193,7 @@ Described as: <code>&lt;ball, small, blue, red wall, orange floor, front&gt;</co
 </ul>
 <p>Accurate referring expressions are essential for effective communication in these contexts, and current LLMs—especially open-weight ones—still struggle to meet this standard.</p>
 <hr>
-<h2>Limitations and Future Directions</h2>
+<h4>Limitations and Future Directions</h4>
 <p>This evaluation relied on strict criteria for referring expressions based on brevity algorithms. Future studies could incorporate more human-like flexibility in evaluation, allowing for redundant but informative descriptions.</p>
 <p>Further investigation is also needed into:</p>
 <ul>
@@ -206,7 +203,7 @@ Described as: <code>&lt;ball, small, blue, red wall, orange floor, front&gt;</co
 </ul>
 <p>In particular, understanding how LLMs select which attributes to mention and ensuring that descriptions correspond to real, existing images remain open challenges.</p>
 <hr>
-<h2>Conclusion</h2>
+<h4>Conclusion</h4>
 <p>Multimodal LLMs show promising comprehension abilities when interpreting referring expressions, particularly on simpler datasets. However, generating clear, efficient, and unambiguous expressions remains a significant challenge—especially in visually complex settings. While commercial models show more consistent behavior, all models evaluated demonstrate room for improvement in using context to generate truly referential language.</p>
 <p>For a deeper look into the experimental setup, results, and detailed analyses, you can access the full thesis:</p>
 <p><strong><a href="insert-link-to-thesis.pdf">Read the full thesis (PDF)</a></strong></p>
@@ -217,10 +214,10 @@ Described as: <code>&lt;ball, small, blue, red wall, orange floor, front&gt;</co
 <div>
         <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
             <p style="margin-top: 2%;">
-                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/hello-world.html&text=Hello World&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
-                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/hello-world.html&t=Hello World"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/drafts/can-llms-describe-what-they-see.html&text=Can LLMs Describe What They See?&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/drafts/can-llms-describe-what-they-see.html&t=Can LLMs Describe What They See?"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
 
-                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/hello-world.html&title=Hello World" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/drafts/can-llms-describe-what-they-see.html&title=Can LLMs Describe What They See?" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
             </p>
 </div>
 <hr>
