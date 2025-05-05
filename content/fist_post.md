@@ -6,7 +6,7 @@ Tags: llm, linguistics, evaluation
 Summary: How well do AI language models describe what they see? This study evaluates their ability to generate and understand referring expressions using a visual reference game.
 
 
-As language models get better at understanding both text and images, I found myself wondering: **Can they actually refer to something the way we do?** Not just describe an image, but *point something out* within a controlled context clearly —like saying *“the red chair”* when there are four different chairs.
+As language models get better at understanding both text and images, I found myself wondering: **Can they actually refer to something the way we do?** Not just describe an image, but *point something out* within a controlled context clearly, like saying *“the red chair”* when there are four different chairs.
 
 That’s what my thesis is all about. I set up a reference game, kind of like a digital version of "guess which picture I mean" and tested how well multi-modal LLMs could play it. The idea was to see whether they could understand and generate short, clear descriptions that help identify specific images while excluding the others. Here's what I found.
 
@@ -52,7 +52,7 @@ Most models did a pretty good job when they were just reading a human-written de
 
 ##### Harder Images Made Things Worse
 
-Not surprisingly, the more complex 3D shapes caused more trouble. There were more things to describe—and more ways to get it wrong.
+Not surprisingly, the more complex 3D shapes caused more trouble. There were more things to describe and more ways to get it wrong.
 
 ##### Commercial Models Had the Upper Hand
 
@@ -185,7 +185,7 @@ Being able to refer to things clearly is a big deal in real-world AI application
 - Making assistive tools (like screen readers) smarter
 - Improving collaboration between people and machines
 
-If a model says *“the chair in the back corner”* but there are three of them—it’s a problem. That’s why it’s important we keep testing and improving this kind of ability.
+If a model says *“the chair in the back corner”* but there are three of them, it’s a problem. That’s why it’s important we keep testing and improving this kind of ability.
 
 ---
 
@@ -196,7 +196,7 @@ Some ideas for future work:
 - Try more human-like evaluation methods (not just minimal expressions)
 - Test how models behave in **multi-turn** conversations
 - See if models can be prompted or trained to use visual context more effectively
-- Fix inconsistent outputs — models often gave different answers for the same input
+- Fix inconsistent outputs; models often gave different answers for the same input
 
 ---
 
@@ -204,7 +204,7 @@ Some ideas for future work:
 
 Language models are clearly getting better at handling vision and language together. But this kind of **reference-focused task** is still tricky. Most models do fine reading descriptions, but struggle to produce their own that are short, clear, and helpful.
 
-Still, the gap is closing—and this kind of research helps us understand where the real challenges are.
+Still, the gap is closing and this kind of research helps us understand where the real challenges are.
 
 Want to dig deeper?  
 **[Read the full thesis (PDF)](https://drive.google.com/file/d/1cqocdQEf3c_h90fOwwvgsSTZ18eBanKJ/view?usp=sharing)**
