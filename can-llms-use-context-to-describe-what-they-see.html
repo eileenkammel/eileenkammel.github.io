@@ -116,7 +116,7 @@
 
 <div>
     <mainarticle>
-    <p>As language models get better at understanding both text and images, I found myself wondering: <strong>Can they actually refer to something the way we do?</strong> Not just describe an image, but <em>point something out</em> within a controlled context clearly —like saying <em>“the red chair”</em> when there are four different chairs.</p>
+    <p>As language models get better at understanding both text and images, I found myself wondering: <strong>Can they actually refer to something the way we do?</strong> Not just describe an image, but <em>point something out</em> within a controlled context clearly, like saying <em>“the red chair”</em> when there are four different chairs.</p>
 <p>That’s what my thesis is all about. I set up a reference game, kind of like a digital version of "guess which picture I mean" and tested how well multi-modal LLMs could play it. The idea was to see whether they could understand and generate short, clear descriptions that help identify specific images while excluding the others. Here's what I found.</p>
 <hr>
 <h4>The Setup: A Two-Player Game</h4>
@@ -147,7 +147,7 @@ The first image is described by the attribute matrix: <code>&lt;ball, small, blu
 <h5>Models Are Better at Understanding Than Describing</h5>
 <p>Most models did a pretty good job when they were just reading a human-written description and picking an image. But when they had to <strong>generate</strong> that description themselves, things got messier. The descriptions were often too long or didn’t include the right details, so another LLM was not able to pick the right image based on such a description.</p>
 <h5>Harder Images Made Things Worse</h5>
-<p>Not surprisingly, the more complex 3D shapes caused more trouble. There were more things to describe—and more ways to get it wrong.</p>
+<p>Not surprisingly, the more complex 3D shapes caused more trouble. There were more things to describe and more ways to get it wrong.</p>
 <h5>Commercial Models Had the Upper Hand</h5>
 <p>Commercial models like GPT-4o and Claude 3.5 outperformed open models like InternVL2 or Idefics, especially when it came to generating clearer, more focused descriptions.</p>
 <hr>
@@ -254,7 +254,7 @@ The first image is described by the attribute matrix: <code>&lt;ball, small, blu
 <li>Making assistive tools (like screen readers) smarter</li>
 <li>Improving collaboration between people and machines</li>
 </ul>
-<p>If a model says <em>“the chair in the back corner”</em> but there are three of them—it’s a problem. That’s why it’s important we keep testing and improving this kind of ability.</p>
+<p>If a model says <em>“the chair in the back corner”</em> but there are three of them, it’s a problem. That’s why it’s important we keep testing and improving this kind of ability.</p>
 <hr>
 <h4>What Could Be Better?</h4>
 <p>Some ideas for future work:</p>
@@ -262,12 +262,12 @@ The first image is described by the attribute matrix: <code>&lt;ball, small, blu
 <li>Try more human-like evaluation methods (not just minimal expressions)</li>
 <li>Test how models behave in <strong>multi-turn</strong> conversations</li>
 <li>See if models can be prompted or trained to use visual context more effectively</li>
-<li>Fix inconsistent outputs — models often gave different answers for the same input</li>
+<li>Fix inconsistent outputs; models often gave different answers for the same input</li>
 </ul>
 <hr>
 <h4>Final Thoughts</h4>
 <p>Language models are clearly getting better at handling vision and language together. But this kind of <strong>reference-focused task</strong> is still tricky. Most models do fine reading descriptions, but struggle to produce their own that are short, clear, and helpful.</p>
-<p>Still, the gap is closing—and this kind of research helps us understand where the real challenges are.</p>
+<p>Still, the gap is closing and this kind of research helps us understand where the real challenges are.</p>
 <p>Want to dig deeper?<br>
 <strong><a href="https://drive.google.com/file/d/1cqocdQEf3c_h90fOwwvgsSTZ18eBanKJ/view?usp=sharing">Read the full thesis (PDF)</a></strong></p>
     </mainarticle>

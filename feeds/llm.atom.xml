@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Large Language Musings - LLM</title><link href="https://eileenkammel.github.io/" rel="alternate"></link><link href="https://eileenkammel.github.io/feeds/llm.atom.xml" rel="self"></link><id>https://eileenkammel.github.io/</id><updated>2025-04-29T00:00:00+02:00</updated><entry><title>Can LLMs Use Context To Describe What They See?</title><link href="https://eileenkammel.github.io/can-llms-use-context-to-describe-what-they-see.html" rel="alternate"></link><published>2025-04-29T00:00:00+02:00</published><updated>2025-04-29T00:00:00+02:00</updated><author><name>Eileen Kammel</name></author><id>tag:eileenkammel.github.io,2025-04-29:/can-llms-use-context-to-describe-what-they-see.html</id><summary type="html">&lt;p&gt;How well do AI language models describe what they see? This study evaluates their ability to generate and understand referring expressions using a visual reference game.&lt;/p&gt;</summary><content type="html">&lt;p&gt;As language models get better at understanding both text and images, I found myself wondering: &lt;strong&gt;Can they actually refer to something the way we do?&lt;/strong&gt; Not just describe an image, but &lt;em&gt;point something out&lt;/em&gt; within a controlled context clearly —like saying &lt;em&gt;“the red chair”&lt;/em&gt; when there are four different chairs.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Large Language Musings - LLM</title><link href="https://eileenkammel.github.io/" rel="alternate"></link><link href="https://eileenkammel.github.io/feeds/llm.atom.xml" rel="self"></link><id>https://eileenkammel.github.io/</id><updated>2025-04-29T00:00:00+02:00</updated><entry><title>Can LLMs Use Context To Describe What They See?</title><link href="https://eileenkammel.github.io/can-llms-use-context-to-describe-what-they-see.html" rel="alternate"></link><published>2025-04-29T00:00:00+02:00</published><updated>2025-04-29T00:00:00+02:00</updated><author><name>Eileen Kammel</name></author><id>tag:eileenkammel.github.io,2025-04-29:/can-llms-use-context-to-describe-what-they-see.html</id><summary type="html">&lt;p&gt;How well do AI language models describe what they see? This study evaluates their ability to generate and understand referring expressions using a visual reference game.&lt;/p&gt;</summary><content type="html">&lt;p&gt;As language models get better at understanding both text and images, I found myself wondering: &lt;strong&gt;Can they actually refer to something the way we do?&lt;/strong&gt; Not just describe an image, but &lt;em&gt;point something out&lt;/em&gt; within a controlled context clearly, like saying &lt;em&gt;“the red chair”&lt;/em&gt; when there are four different chairs.&lt;/p&gt;
 &lt;p&gt;That’s what my thesis is all about. I set up a reference game, kind of like a digital version of "guess which picture I mean" and tested how well multi-modal LLMs could play it. The idea was to see whether they could understand and generate short, clear descriptions that help identify specific images while excluding the others. Here's what I found.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4&gt;The Setup: A Two-Player Game&lt;/h4&gt;
@@ -30,7 +30,7 @@ The first image is described by the attribute matrix: &lt;code&gt;&amp;lt;ball, 
 &lt;h5&gt;Models Are Better at Understanding Than Describing&lt;/h5&gt;
 &lt;p&gt;Most models did a pretty good job when they were just reading a human-written description and picking an image. But when they had to &lt;strong&gt;generate&lt;/strong&gt; that description themselves, things got messier. The descriptions were often too long or didn’t include the right details, so another LLM was not able to pick the right image based on such a description.&lt;/p&gt;
 &lt;h5&gt;Harder Images Made Things Worse&lt;/h5&gt;
-&lt;p&gt;Not surprisingly, the more complex 3D shapes caused more trouble. There were more things to describe—and more ways to get it wrong.&lt;/p&gt;
+&lt;p&gt;Not surprisingly, the more complex 3D shapes caused more trouble. There were more things to describe and more ways to get it wrong.&lt;/p&gt;
 &lt;h5&gt;Commercial Models Had the Upper Hand&lt;/h5&gt;
 &lt;p&gt;Commercial models like GPT-4o and Claude 3.5 outperformed open models like InternVL2 or Idefics, especially when it came to generating clearer, more focused descriptions.&lt;/p&gt;
 &lt;hr&gt;
@@ -137,7 +137,7 @@ The first image is described by the attribute matrix: &lt;code&gt;&amp;lt;ball, 
 &lt;li&gt;Making assistive tools (like screen readers) smarter&lt;/li&gt;
 &lt;li&gt;Improving collaboration between people and machines&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If a model says &lt;em&gt;“the chair in the back corner”&lt;/em&gt; but there are three of them—it’s a problem. That’s why it’s important we keep testing and improving this kind of ability.&lt;/p&gt;
+&lt;p&gt;If a model says &lt;em&gt;“the chair in the back corner”&lt;/em&gt; but there are three of them, it’s a problem. That’s why it’s important we keep testing and improving this kind of ability.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4&gt;What Could Be Better?&lt;/h4&gt;
 &lt;p&gt;Some ideas for future work:&lt;/p&gt;
@@ -145,11 +145,11 @@ The first image is described by the attribute matrix: &lt;code&gt;&amp;lt;ball, 
 &lt;li&gt;Try more human-like evaluation methods (not just minimal expressions)&lt;/li&gt;
 &lt;li&gt;Test how models behave in &lt;strong&gt;multi-turn&lt;/strong&gt; conversations&lt;/li&gt;
 &lt;li&gt;See if models can be prompted or trained to use visual context more effectively&lt;/li&gt;
-&lt;li&gt;Fix inconsistent outputs — models often gave different answers for the same input&lt;/li&gt;
+&lt;li&gt;Fix inconsistent outputs; models often gave different answers for the same input&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h4&gt;Final Thoughts&lt;/h4&gt;
 &lt;p&gt;Language models are clearly getting better at handling vision and language together. But this kind of &lt;strong&gt;reference-focused task&lt;/strong&gt; is still tricky. Most models do fine reading descriptions, but struggle to produce their own that are short, clear, and helpful.&lt;/p&gt;
-&lt;p&gt;Still, the gap is closing—and this kind of research helps us understand where the real challenges are.&lt;/p&gt;
+&lt;p&gt;Still, the gap is closing and this kind of research helps us understand where the real challenges are.&lt;/p&gt;
 &lt;p&gt;Want to dig deeper?&lt;br&gt;
 &lt;strong&gt;&lt;a href="https://drive.google.com/file/d/1cqocdQEf3c_h90fOwwvgsSTZ18eBanKJ/view?usp=sharing"&gt;Read the full thesis (PDF)&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</content><category term="LLM"></category><category term="llm"></category><category term="linguistics"></category><category term="evaluation"></category></entry></feed>
