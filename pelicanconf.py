@@ -22,9 +22,9 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (
-    ("Best Playlist", "https://open.spotify.com/playlist/6hx11ZpXIunQDCxq6OrHs7?si=bcec27f22e084d15"),
-)
+# Re-enable by restoring the playlist entry below.
+LINKS = ()
+# ("Best Playlist", "https://open.spotify.com/playlist/6hx11ZpXIunQDCxq6OrHs7?si=bcec27f22e084d15"),
 
 # Social widget
 SOCIAL = (
@@ -35,6 +35,8 @@ SOCIAL = (
 DEFAULT_PAGINATION = 5
 
 DISPLAY_PAGES_ON_MENU = True
+# Remove "about.md" to re-enable the About Me page.
+IGNORE_FILES = ["**/.*", "about.md"]
 
 MENUITEMS = (
     ("Home", "/"),
